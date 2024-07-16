@@ -31,7 +31,11 @@
 #include <limits.h>
 
 #define FUSERMOUNT_PROG		"mount_fusefs"
-#define FUSE_DEV_TRUNK		"/dev/fuse"
+#ifdef __OpenBSD__
+# define FUSE_DEV_TRUNK		"/dev/fuse0"
+#else
+# define FUSE_DEV_TRUNK		"/dev/fuse"
+#endif
 
 enum {
 	KEY_RO,
