@@ -27,7 +27,7 @@ endif
 if host_machine.system().startswith('netbsd')
    deps += [ cc.find_library('perfuse'),
              cc.find_library('puffs') ]
-else
+elif not host_machine.system().startswith('openbsd')
    # Required for clock_gettime before glibc 2.17
    deps += cc.find_library('rt')
 endif

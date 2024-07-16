@@ -47,6 +47,10 @@
 #endif
 #include <sys/file.h> /* flock(2) */
 
+#ifdef __OpenBSD__
+# define O_DIRECT 0
+#endif
+
 static void *xmp_init(struct fuse_conn_info *conn,
 		      struct fuse_config *cfg)
 {

@@ -6,6 +6,10 @@
   See the file COPYING.LIB
 */
 
+#ifdef __OpenBSD__
+# include <pthread.h>
+#endif
+
 #include "fuse.h"
 #include "fuse_lowlevel.h"
 

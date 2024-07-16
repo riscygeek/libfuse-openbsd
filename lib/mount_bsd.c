@@ -136,6 +136,7 @@ void fuse_kern_unmount(const char *mountpoint, int fd)
 /* Check if kernel is doing init in background */
 static int init_backgrounded(void)
 {
+#ifndef __OpenBSD__
 	unsigned ibg;
 	size_t len;
 
@@ -145,6 +146,9 @@ static int init_backgrounded(void)
 		return 0;
 
 	return ibg;
+#else
+	return 0;
+#endif
 }
 
 

@@ -49,6 +49,10 @@
 #include <sys/xattr.h>
 #endif
 
+#ifdef __OpenBSD__
+# define O_DIRECT 0
+#endif
+
 #include "passthrough_helpers.h"
 
 static int fill_dir_plus = 0;

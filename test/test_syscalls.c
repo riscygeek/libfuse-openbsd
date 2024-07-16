@@ -20,6 +20,9 @@
 # define ALLPERMS (S_ISUID|S_ISGID|S_ISVTX|S_IRWXU|S_IRWXG|S_IRWXO)/* 07777 */
 #endif
 
+#ifdef __OpenBSD__
+# define O_PATH O_RDONLY
+#endif
 
 static const char *basepath;
 static const char *basepath_r;
